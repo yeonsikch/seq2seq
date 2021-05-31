@@ -1,0 +1,26 @@
+architecture:
+  type: seq2seq
+  params:
+    lstm: example
+
+dataset:
+  train:
+    type: imagenet
+    split: train
+    batch_size: 128
+
+
+optimizer:
+  params:
+    base_optim: sgd
+    learning_rate: 0.012
+    momentum: 0.9
+
+scheduler:
+  epoch: 8
+  type: warmup_cosine
+  params:
+    warmup_epoch: 10
+
+save_root:
+  checkpoint: /data/private/_swav/save_root/
